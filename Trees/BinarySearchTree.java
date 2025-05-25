@@ -32,4 +32,36 @@ public class BinarySearchTree {
             inorderHelper(root.right);
         }
     }
+
+    private void preOrderHelper(Node root) {
+        if (root != null) {
+            System.out.print(" " + root.data);
+            inorderHelper(root.left);
+            inorderHelper(root.right);
+        }
+    }
+
+    private void postOrderHelper(Node root) {
+        if (root != null) {
+            inorderHelper(root.left);
+            inorderHelper(root.right);
+            System.out.print(" " + root.data);
+        }
+    }
+
+    private boolean searchTree(int key, Node root) {
+        if (root == null) {
+            return false;
+        }
+        if (root.data == key) {
+            return true;
+        }
+        if (root.data > key) {
+            return searchTree(key, root.left);
+        } else if (root.data < key) {
+            return searchTree(key, root.right);
+        }
+
+    }
+
 }
